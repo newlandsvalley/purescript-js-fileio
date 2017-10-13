@@ -3,6 +3,8 @@
 /.pulp-cache/
 /output/
 /generated-docs/
+/example/bower_components/
+/example/output/
 /dist/purescript-file.js
 /.psc*
 /.purs*
