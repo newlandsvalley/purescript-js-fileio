@@ -34,10 +34,10 @@ function _loadFileImpl (elementid, asBinary, onError, onSuccess) {
 
   if (typeof selectedFile != 'undefined') {
      if (asBinary) {
-       reader.readAsText(selectedFile);
+       reader.readAsBinaryString(selectedFile);
      }
      else {
-       reader.readAsBinaryString(selectedFile);
+       reader.readAsText(selectedFile);
      }
   }
   else {
