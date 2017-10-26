@@ -50,7 +50,7 @@ function saveTextFile(filespec) {
     var a = document.createElement("a");
     // console.log("File contents: " + filespec.contents);
     var file = new Blob([filespec.contents], {type: "text/plain;charset=utf-8"});
-    url = URL.createObjectURL(file);
+    var url = URL.createObjectURL(file);
     a.href = url;
     a.download = filespec.name;
     document.body.appendChild(a);

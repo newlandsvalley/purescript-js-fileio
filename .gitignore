@@ -5,7 +5,8 @@
 /generated-docs/
 /example/bower_components/
 /example/output/
-/dist/purescript-file.js
+/example/.psc-ide-port
+/example/dist/purescript-file.js
 /.psc*
 /.purs*
 /.psa*

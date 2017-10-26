@@ -3,15 +3,16 @@ module Main where
 import CSS.TextAlign (center, textAlign)
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Exception (EXCEPTION)
+import Control.Monad.Eff.Class (liftEff)
 import Data.Maybe (Maybe(..))
 import Prelude (Unit, bind, discard, const, pure, ($), (<>))
 import Pux (EffModel, noEffects, start)
-import Pux.DOM.Events (onChange)
+import Pux.DOM.Events (onChange, onClick)
 import Pux.DOM.HTML (HTML)
 import Pux.DOM.HTML.Attributes (style)
 import Pux.Renderer.React (renderToDOM)
-import Text.Smolder.HTML (div, h1, p, input)
-import Text.Smolder.HTML.Attributes (type', id, accept)
+import Text.Smolder.HTML (div, h1, p, input, button)
+import Text.Smolder.HTML.Attributes (type', id, accept, className)
 import Text.Smolder.Markup (Attribute, text, (#!), (!))
 import Signal.Channel (CHANNEL)
 import JS.FileIO
@@ -20,6 +21,7 @@ data Event
   = NoOp
   | RequestTextFileUpload
   | RequestBinaryFileUpload
+  | SaveTextFile
   | FileLoaded Filespec
 
 type State =
@@ -50,7 +52,16 @@ foldp RequestBinaryFileUpload state =
   }
 foldp (FileLoaded filespec) state =
    noEffects $ saveFilespec filespec state
-
+foldp SaveTextFile state =
+   { state: state
+     , effects:
+       [ do
+           let
+             fsp = { name: "test.txt", contents : "sample content"} :: Filespec
+           res <- liftEff $ saveTextFile fsp
+           pure $ (Just NoOp)
+       ]
+    }
 saveFilespec :: Filespec -> State -> State
 saveFilespec filespec state =
    state { filespec = Just filespec }
@@ -76,6 +87,10 @@ view state =
        input ! type' "file" ! id "binaryinput" ! accept ".midi"
          #! onChange (const RequestBinaryFileUpload)
      p $ text $ viewFile state
+     p $ text "save a sample file (test.txt)"
+     div do
+       button ! className "hoverable"
+          #! onClick (const $ SaveTextFile) $ text "save"
 
 centreStyle :: Attribute
 centreStyle =
