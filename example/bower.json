@@ -7,7 +7,8 @@
     "output"
   ],
   "dependencies": {
-    "purescript-js-fileio": "https://github.com/newlandsvalley/purescript-js-fileio.git"
+    "purescript-js-fileio": "https://github.com/newlandsvalley/purescript-js-fileio.git#1.0.1",
+    "purescript-pux": "^12.0.0"
   },
   "devDependencies": {
     "purescript-console": "^3.0.0",
