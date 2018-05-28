@@ -17,6 +17,8 @@ import Text.Smolder.Markup (Attribute, text, (#!), (!))
 import Signal.Channel (CHANNEL)
 import JS.FileIO
 
+-- WARNING PS v 0.11.7 
+
 data Event
   = NoOp
   | RequestTextFileUpload
