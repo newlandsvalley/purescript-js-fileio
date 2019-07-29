@@ -11,7 +11,7 @@
     "purescript-aff": "^5.1.1"
   },
   "devDependencies": {
-    "purescript-console": "^4.2.0",
+    "purescript-console": "^4.2.0", 
     "purescript-psci-support": "^4.0.0"
   }
 }
