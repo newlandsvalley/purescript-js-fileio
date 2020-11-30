@@ -3,10 +3,11 @@
 /.pulp-cache/
 /output/
 /generated-docs/
-/example/bower_components/
-/example/output/
-/example/.psc-ide-port
-/example/dist/purescript-file.js
+/halogen-example/bower_components/
+/halogen-example/output/
+/halogen-example/.psc-ide-port
+/halogen-example/dist/fileio.js
+/halogen-example/.spago/
 /.psc*
 /.purs*
 /.psa*

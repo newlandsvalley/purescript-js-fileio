@@ -7,7 +7,9 @@ Provide the facility for browser-based applications to read and write files to a
 *  loadBinaryFileAsText
 *  saveTextFile
 
-Note that  __readAsText__ and __readAsBinaryString__ are effectively deprecated in javascript in favour of __Blob.text__ and __FileReader.readAsArrayBuffer__ which work by registering an event listener which fires once the data has been loaded from the file. This can be achieved in purescript by means of the Web.File API.
+Note that __readAsBinaryString__ is effectively deprecated in javascript. As far as I can tell, it was originally dropped from the [W3C File API](https://www.w3.org/TR/FileAPI/) specification but later reappeared because of backward compatibility reasons.  The spec says that __readAsArrayBuffer__ is preferred.
+
+If, alternatively, you intend to make use of Halogen's __onFileUpload__ event, then this treats files in terms of the [Web File](https://pursuit.purescript.org/packages/purescript-web-file/2.3.0/docs/Web.File.File#t:File) API. This approach requires the use of a subsequent __loadend__ callback which I think means that coroutines must be used if you need to get hold of the file's contents.
 
 
 ## To build
@@ -20,12 +22,12 @@ or
     bower install
     pulp build
 
-## To build the example
+## To build the Halogen example
 
-Note that the example only works with purescript-pux under ps 0.12 but should give an indication of how the library may be used.  cd to the example directory and run:
+cd to the halogen-example directory and run:
 
 
-    ./build.sh
+    npm run build
 
 
 And then navigate to the __dist__ directory.
