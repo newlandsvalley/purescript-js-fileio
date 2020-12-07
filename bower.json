@@ -1,5 +1,8 @@
 {
   "name": "purescript-js-fileio",
+  "license": [
+        "MIT"
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
@@ -11,7 +14,7 @@
     "purescript-aff": "^5.1.2"
   },
   "devDependencies": {
-    "purescript-console": "^4.4.0", 
+    "purescript-console": "^4.4.0",
     "purescript-psci-support": "^4.0.0"
   }
 }
