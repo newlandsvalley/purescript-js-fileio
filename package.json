@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "spago build",
+    "halogen-example": "spago -x ./halogen-example.dhall bundle-app --main HalogenExample.Main --to halogen-example/dist/fileio.js",
+    "pulp-build": "pulp build"
+  },
+  "devDependencies": {
+    "pulp": "^15.0.0",
+    "purescript": "^0.14.0",
+    "purescript-psa": "^0.5.1"
+  }
+}

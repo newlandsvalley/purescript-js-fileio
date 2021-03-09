@@ -26,10 +26,7 @@ or
 
 ## To build the Halogen example
 
-cd to the halogen-example directory and run:
+    npm run halogen-example
 
 
-    npm run build
-
-
-And then navigate to the __dist__ directory.
+And then navigate to the __halogen_example/dist__ directory.
