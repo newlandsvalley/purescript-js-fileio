@@ -12,9 +12,6 @@ import Halogen.HTML.Properties as HP
 import Halogen.HTML.Core (ClassName(..))
 import DOM.HTML.Indexed.InputAcceptType (InputAcceptType)
 import JS.FileIO (Filespec, loadTextFile, loadBinaryFileAsText)
-import Halogen.HTML.Properties (IProp)
-import Halogen.HTML.CSS (style)
-import CSS.Display (display, displayNone)
 import FileInputComponent.Dom (resetInputValue)
 
 -- | A simple file input control that wraps JS.FileIO
@@ -41,7 +38,7 @@ type State =
   , isEnabled :: Boolean
   }
 
-component :: ∀ i m. MonadAff m => Context -> H.Component HH.HTML Query i Message m
+component :: ∀ i m. MonadAff m => Context -> H.Component Query i Message m
 component ctx =
   H.mkComponent
     { initialState
@@ -76,12 +73,12 @@ component ctx =
         -- we set the style to display none so that the label acts as a button
       , HH.input
           [ -- HE.onChange (HE.input_ LoadFile)
-            HE.onChange \_ -> Just LoadFile
+            HE.onChange \_ -> LoadFile
           , HP.type_ HP.InputFile
-          , HP.id_  ctx.componentId
+          , HP.class_ $ ClassName "noDisplay"
+          , HP.id  ctx.componentId
           , HP.accept ctx.accept
           , HP.enabled state.isEnabled
-          , noDisplayStyle
           ]
        , renderContents state
       ]
@@ -114,7 +111,3 @@ component ctx =
       _ <- H.modify (\state -> state {isEnabled = isEnabled})
       pure (Just next)
 
-  noDisplayStyle :: ∀ j r. IProp (style :: String | r) j
-  noDisplayStyle =
-    style do
-      display displayNone
