@@ -14,11 +14,11 @@
     "output"
   ],
   "dependencies": {
-    "purescript-prelude": "^5.0.0",
-    "purescript-aff": "^6.0.0"
+    "purescript-prelude": "^6.0.0",
+    "purescript-aff": "^7.0.0"
   },
   "devDependencies": {
-    "purescript-console": "^5.0.0",
-    "purescript-psci-support": "^5.0.0"
+    "purescript-console": "^6.0.0",
+    "purescript-psci-support": "^6.0.0"
   }
 }

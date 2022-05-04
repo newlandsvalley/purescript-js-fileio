@@ -16,7 +16,6 @@ If, alternatively, you intend to make use of Halogen's __onFileUpload__ event, t
 
 ## To build
 
-    spago install
     spago build
 
 or

@@ -63,6 +63,6 @@ function saveTextFile(filespec) {
   };
 }
 
-exports.loadTextFileImpl = loadTextFileImpl;
-exports.loadBinaryFileAsTextImpl = loadBinaryFileAsTextImpl;
-exports.saveTextFile = saveTextFile;
+export {loadTextFileImpl};
+export {loadBinaryFileAsTextImpl};
+export {saveTextFile};

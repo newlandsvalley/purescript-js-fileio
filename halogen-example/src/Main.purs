@@ -24,10 +24,11 @@ main = HA.runHalogenAff
 
   in do
     body <- HA.awaitBody
-    io <- runUI (FI.component ctx ) unit body
+    io <- runUI (FI.component ctx ) unit body    
     
     liftEffect $ HS.subscribe io.messages \msg -> do
       case msg of 
         FI.FileLoaded filespec -> do
           liftEffect $ log $ "File was loaded: " <> filespec.name
           pure Nothing
+    
