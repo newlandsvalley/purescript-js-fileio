@@ -6,8 +6,10 @@
     "pulp-build": "pulp build"
   },
   "devDependencies": {
+    "purescript": "0.15.0",
     "esbuild": "^0.14.38",
     "pulp": "^16.0.0",
-    "purescript-psa": "^0.5.1"
+    "purescript-psa": "^0.5.1",
+    "spago": "0.20.9"
   }
 }
