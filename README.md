@@ -18,14 +18,9 @@ If, alternatively, you intend to make use of Halogen's __onFileUpload__ event, t
 
     spago build
 
-or
-
-    bower install
-    pulp build
-
 ## To build the Halogen example
 
-    npm run halogen-example
+    npm run example
 
 
 And then navigate to the __halogen_example/dist__ directory.

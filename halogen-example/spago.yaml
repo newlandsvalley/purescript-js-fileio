@@ -1,0 +1,8 @@
+package:
+  name: halogen-example
+  dependencies:
+    - aff
+    - console
+    - effect
+    - js-fileio
+    - halogen

@@ -1,0 +1,11 @@
+package:
+  dependencies:
+    - aff
+    - effect
+    - console
+    - prelude    
+  name: js-fileio
+workspace:
+  extraPackages: {}
+  packageSet:
+    registry: 63.0.0
